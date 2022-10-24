@@ -14,10 +14,12 @@ import resolve from '@rollup/plugin-node-resolve';
 // 但目前，大多数的 NPM 包暴露的都是 CommonJS 模块。在此更改之前，我们需要将 CommonJS 转换为 ES2015，这样 Rollup 才能处理它们。
 import commonjs from '@rollup/plugin-commonjs';
 
+import json from '@rollup/plugin-json';
+
 import typescript from 'rollup-plugin-typescript2';
 
-import babel from '@rollup/plugin-babel' 
-import { DEFAULT_EXTENSIONS } from '@babel/core' 
+import babel from '@rollup/plugin-babel';
+import { DEFAULT_EXTENSIONS } from '@babel/core';
 
 export default {
   input: path.resolve(__dirnameNew, './src/index.ts'),
@@ -31,6 +33,7 @@ export default {
   preserveModules: true,
   plugins: [
     resolve(),
+    json(),
     commonjs(),
     typescript(),
     babel({ 

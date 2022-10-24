@@ -14,6 +14,8 @@ import resolve from '@rollup/plugin-node-resolve';
 // 但目前，大多数的 NPM 包暴露的都是 CommonJS 模块。在此更改之前，我们需要将 CommonJS 转换为 ES2015，这样 Rollup 才能处理它们。
 import commonjs from '@rollup/plugin-commonjs';
 
+import json from '@rollup/plugin-json';
+
 import typescript from 'rollup-plugin-typescript2';
 
 import babel from '@rollup/plugin-babel';
@@ -28,10 +30,9 @@ export default {
       name: 'temp' // 这个name属性非常重要，是通过 cdn 引入后，挂载到 window上的属性名
     }
   ],
-  // 关键属性，只有将其设置为 `true` 才能保证只编译、不打包
-  preserveModules: true,
   plugins: [
     resolve(),
+    json(),
     commonjs(),
     typescript(),
     babel({ 

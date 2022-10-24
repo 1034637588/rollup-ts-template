@@ -16,8 +16,10 @@ import commonjs from '@rollup/plugin-commonjs';
 
 import typescript from 'rollup-plugin-typescript2';
 
-import babel from '@rollup/plugin-babel' 
-import { DEFAULT_EXTENSIONS } from '@babel/core' 
+import json from '@rollup/plugin-json';
+
+import babel from '@rollup/plugin-babel';
+import { DEFAULT_EXTENSIONS } from '@babel/core';
 
 export default {
   input: path.resolve(__dirnameNew, './src/index.ts'),
@@ -27,10 +29,9 @@ export default {
       format: 'cjs', // 通过esm格式输出
     }
   ],
-  // 关键属性，只有将其设置为 `true` 才能保证只编译、不打包
-  preserveModules: true,
   plugins: [
     resolve(),
+    json(),
     commonjs(),
     typescript(),
     babel({ 
