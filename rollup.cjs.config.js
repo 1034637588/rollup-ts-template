@@ -1,6 +1,7 @@
 import path from 'path';
 
-import { fileURLToPath } from 'url'
+import copy from 'rollup-plugin-copy';
+import { fileURLToPath } from 'url';
 
 const __filenameNew = fileURLToPath(import.meta.url);
 
@@ -44,6 +45,13 @@ export default {
           ...DEFAULT_EXTENSIONS, 
           '.ts', 
       ], 
-  }), 
+    }),
+    copy({
+      targets: [
+        { src: './publish-pkg-md/package.json', dest: 'dist' },
+        { src: './publish-pkg-md/readme.md', dest: 'dist' },
+        { src: './bin/index.js', dest: 'dist/bin'},
+      ]
+    })
   ]
 }

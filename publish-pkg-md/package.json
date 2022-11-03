@@ -1,0 +1,20 @@
+{
+  "name": "fanbook-game-bot-jssdk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "umd": "./dist/umd/index.js",
+  "files": [
+    "cjs",
+    "esm",
+    "umd",
+    "bin"
+  ],
+  "bin": {
+    "xxxx": "./bin/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
